@@ -11,16 +11,11 @@ with open("input.txt", "r") as file:
             for colours in rounds.split(","):
                 colour = colours.split()
                 n = int(colour[0])
-                if "red" in colour and n > 12:
-                    valid = False
-                if "green" in colour and n > 13:
-                    valid = False
-                if "blue" in colour and n > 14:
+                if ("red" in colour and n > 12) or ("green" in colour and n > 13) or ("blue" in colour and n > 14):
                     valid = False
 
         if valid:
             total += mrID + 1
-
     print(total)
 
 
@@ -44,5 +39,4 @@ with open("input.txt", "r") as file:
                     highestBlue = n
 
         total += highestRed * highestGreen * highestBlue
-
     print(total)
