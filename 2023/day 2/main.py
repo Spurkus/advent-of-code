@@ -29,9 +29,7 @@ with open("input.txt", "r") as file:
     data = [i.replace("\n", "") for i in file.readlines()]
     total = 0
     for game in data:
-        highestRed = 1
-        highestGreen = 1
-        highestBlue = 1
+        highestRed = highestGreen = highestBlue = 1
         cubes = game.split(":")[1].split(";")
 
         for rounds in cubes:
