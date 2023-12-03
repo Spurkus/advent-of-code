@@ -2,7 +2,15 @@ def is_symbol(char):
     return not (char in "123456789.")
 
 def check_surround(row, col, data, yea, line, number):
-    oops = data[row].find(number, col)
+    numbersLine = []
+    reachedNumber = False
+    for i in line:
+        if i == number:
+            reachedNumber = True
+        if i.isdigit() and reachedNumber == False:
+            numbersLine.append(len(i))
+
+    oops = data[row].find(number, col + sum(numbersLine) - len(numbersLine))
     try:
         left = is_symbol(line[col - 1])
     except:
