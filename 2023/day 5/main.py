@@ -19,38 +19,36 @@ def sol1():
     print(min(seedsP1))
 
 def sol2():
-    seedsP2 = [int(i) for i in data[0][0].split(":")[1].split()]
-    seedsP2 = [(i, i + seedsP2[n + 1]) for n, i in enumerate(seedsP2) if n % 2 == 0]
+    seeds = [int(i) for i in data[0][0].split(":")[1].split()]
 
-    for i, step in enumerate(formattedData):
-        newseeds = []
-        smol = float("inf")
-        for seed1, seed2 in seedsP2:
-            mapped = False
-            for dest1, source1, sourcel in step:
-                if i != len(formattedData):
-                    int1, int2 = (max(source1, seed1), min(source1 + sourcel, seed2))
+    locations = []
+    for i in range(0, len(seeds), 2):
+        ranges = [[seeds[i], seeds[i] + seeds[i + 1]]]
+        results = []
+        for mappa in formattedData:
+            while ranges:
+                beginRange, endRange = ranges.pop()
+                for destination, source, length in mappa:
+                    bruh = source + length
+                    yea = destination - beginRange
+                    if bruh <= beginRange or endRange <= source:
+                        continue
+                    if beginRange < source:
+                        ranges.append([beginRange, source])
+                        beginRange = source
+                    if bruh < endRange:
+                        ranges.append([bruh, endRange])
+                        endRange = bruh
+                    results.append([beginRange + yea, endRange + yea])
+                    break
                 else:
-                    int1, int2 = (min(source1, seed1), min(source1 + sourcel, seed2))
+                    results.append([beginRange, endRange])
+            ranges = results
+            results = []
+        locations += ranges
 
-                if int1 < int2 and mapped == False and i + 1 != len(formattedData):
-                    newseeds.append((int1 + dest1 - source1, int2 + dest1 - source1))
-                    mapped = True
-
-                if seed1 < smol:
-                    smol = seed1
-            if i == len(formattedData):
-                newseeds.append((smol, seed2))
-            elif mapped == False:
-                newseeds.append((seed1, seed2))
-
-        print(newseeds)
-        seedsP2 = newseeds
+    print(min(loc[0] for loc in locations))
     
-    print(min(k[0] for k in seedsP2))
-
-
-
-
 if __name__ == "__main__":
+    sol1()
     sol2()
