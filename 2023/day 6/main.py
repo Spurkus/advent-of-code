@@ -23,9 +23,11 @@ def sol1():
 
 def sol2():
     # part 2 perchance
+    newTime = int("".join([str(i) for i in time]))
+    newDistance = int("".join([str(i) for i in distance]))
     total = 0
-    for i in range(55826490):
-        if win(i, 55826490, 246144110121111):
+    for i in range(newTime):
+        if win(i, newTime, newDistance):
             total += 1
     print(total)
 
