@@ -1,4 +1,4 @@
-with open("input.txt", "r") as file:
+with open("day 4.txt", "r") as file:
     data = [i.replace("\n", "") for i in file.readlines()]
     data = [i.split(": ")[1] for i in data]
 

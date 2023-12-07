@@ -1,4 +1,4 @@
-with open("input.txt", "r") as file:
+with open("day 5.txt", "r") as file:
     data = [i.split("\n") for i in "".join(file).split("\n\n")]
     formattedData = [[[int(v) for v in n.split()] for n in i[1:]] for i in data[1:]]
 

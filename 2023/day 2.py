@@ -1,4 +1,4 @@
-with open("input.txt", "r") as file:
+with open("day 2.txt", "r") as file:
     # Part 1
     data = [i.replace("\n", "") for i in file.readlines()]
     total = 0

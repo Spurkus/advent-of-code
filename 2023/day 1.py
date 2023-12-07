@@ -1,4 +1,4 @@
-with open("input.txt", "r") as file:
+with open("day 1.txt", "r") as file:
     data = [i.replace("\n", "") for i in file.readlines()]
     numbers = []
     for line in data:

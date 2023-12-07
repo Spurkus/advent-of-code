@@ -44,7 +44,7 @@ def check_surround(row, col, data, yea, line, number):
 
 
 def sol():
-    with open("input.txt", "r") as file:
+    with open("day 3.txt", "r") as file:
         total = 0
         data = [i.replace("\n", "") for i in file.readlines()]
 

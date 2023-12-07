@@ -1,4 +1,4 @@
-with open("input.txt", "r") as file:
+with open("day 6.txt", "r") as file:
     data = [i.replace("\n", "") for i in file]
     time = [int(i) for i in data[0].split(": ")[1].split()]
     distance = [int(i) for i in data[1].split(": ")[1].split()]
